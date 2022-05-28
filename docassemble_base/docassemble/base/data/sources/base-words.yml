@@ -11,6 +11,7 @@
 "Active File": Null
 "Active": Null
 "Actual": Null
+"Add a New API Key": Null
 "Add a new privilege": Null
 "Add a New Project": Null
 "Add an item": Null
@@ -84,7 +85,9 @@
 "Back to Playground": Null
 "Back to profile": Null
 "Back to question": Null
+"Back to user list": Null
 "Bad date": Null
+"Bad file format": Null
 "Bahamas": Null
 "Bahrain": Null
 "Bangladesh": Null
@@ -104,6 +107,7 @@
 "Bouvet Island": Null
 "Branch": Null
 "Brazil": Null
+"breadcrumb": Null
 "British Indian Ocean Territory": Null
 "Brunei Darussalam": Null
 "Bulgaria": Null
@@ -125,13 +129,12 @@
 "Change username": Null
 "Chat message you want to send": Null
 "Check at least one option, or check “%s”": Null
-"Checkboxes:": Null
 "Check box": Null
 "Check if applicable": Null
 "Chile": Null
 "China": Null
+"Choices (choose one):": Null
 "Choices:": Null
-"Choose file": Null
 "Christmas Island": Null
 "Classes": Null
 "Clear": Null
@@ -229,6 +232,7 @@
 "Download all files": Null
 "Download All": Null
 "Download an interview phrase translation file": Null
+"Download installed package": Null
 "Download": Null
 "Download Office add-in manifest file": Null
 "Download the current package": Null
@@ -253,9 +257,11 @@
 "e.g., *example.com": Null
 "Egypt": Null
 "El Salvador": Null
+"E-mail addresses with this domain are not authorized to register for accounts on this system.": Null
 "E-mail address is required": Null
 "Email address is required": Null
 "E-mail address": Null
+"Email Confirmation": Null
 "E-mail is required": Null
 "Email is required": Null
 "E-mail": Null
@@ -404,22 +410,31 @@
 "icon": Null
 "I do not understand what you mean by": Null
 "I don't know": Null
+"If no items are selected, user privileges will determine permissions of the API key.": Null
 "If you did not initiate this confirmation, you may safely ignore this email.": Null
+"If you did not initiate this password change, click the link below to reset it.": Null
 "If you did not initiate this password change,": Null
 "If you did not initiate this password reset, you may safely ignore this email.": Null
 "If you did not initiate this registration, you may safely ignore this email.": Null
 "If you did not initiate this username change, please": Null
+"If you did not initiate this username change, please sign in (using your email address) and change your password.": Null
 "If you have a GitHub account, you can turn on GitHub integration.  This will allow you to use GitHub as a version control system for packages from inside the Playground.": Null
 "If you initiated this confirmation, please click on the link below:": Null
 "If you initiated this registration, please click on the link below:": Null
 "If you initiated this registration, please click on the link below to sign in to your existing account:": Null
+"If you initiated this registration, please visit the link below:": Null
+"If you initiated this registration, please visit the link below to sign in to your existing account:": Null
 "If you initiated this request, please click on the link below:": Null
 "Import method": Null
 "Import": Null
 "Import training data from a JSON file": Null
+"Include DOCX and Markdown files for editing": Null
 "Include DOCX file for editing": Null
 "Include DOCX files for editing": Null
+"Include Markdown file for editing": Null
+"Include Markdown files for editing": Null
 "Include RTF and DOCX files for editing": Null
+"Include RTF and Markdown files for editing": Null
 "Include RTF file for editing": Null
 "Include RTF files for editing": Null
 "Incorrect Email and/or Password": Null
@@ -427,6 +442,7 @@
 "Incorrect %(username_or_email)s and/or Password": Null
 "India": Null
 "Indonesia": Null
+"Information for the developer": Null
 "in mako": Null
 "Input box": Null
 "Input not processed because the page expired.": Null
@@ -443,8 +459,10 @@
 "Interview files": Null
 "Interview": Null
 "Interview:": Null
+"Interview Progress": Null
 "Interviews": Null
 "in the": Null
+"Invalid action.": Null
 "Invalid confirmation token.": Null
 "Invalid e-mail address": Null
 "Invalid Email address": Null
@@ -454,6 +472,7 @@
 "Invalid invitation token": Null
 "Invalid phone number.": Null
 "Invitation has been sent.": Null
+"Invitation": Null
 "Invitations have been sent.": Null
 "Invite a user": Null
 "Invite!": Null
@@ -500,6 +519,7 @@
 "Libya": Null
 "License": Null
 "Liechtenstein": Null
+"Limited Permissions": Null
 "Linked folder": Null
 "link": Null
 "Links": Null
@@ -555,6 +575,7 @@
 "Morocco": Null
 "Move down": Null
 "Mozambique": Null
+"Multiselect box": Null
 "Must be a two-letter code": Null
 "Must be a valid e-mail address": Null
 "Must be in E.164 format.  U.S. phone numbers begin with +1.": Null
@@ -614,6 +635,7 @@
 "North Macedonia": Null
 "Norway": Null
 "(no subject)": Null
+"(Not a DAFile, DAFileList, or list object)": Null
 "(Not a DAFile or DAFileList object)": Null
 "(Not a readable image file)": Null
 "Not authorized": Null
@@ -656,6 +678,7 @@
 "Other settings": Null
 "other user": Null
 "other users": Null
+"Output Format": Null
 "Overrides": Null
 "Package created": Null
 "Package did not exist": Null
@@ -676,6 +699,7 @@
 "Paraguay": Null
 "Password and Retype Password did not match": Null
 "Password is required": Null
+"Password must be at least six characters long with at least one lowercase letter, at least one uppercase letter, and at least one number.": Null
 "Password must have at least 6 characters with one lowercase letter, one uppercase letter and one number": Null
 "password": Null
 "Password": Null
@@ -688,6 +712,7 @@
 "Phone help is available": Null
 "Phone help": Null
 "Phone number": Null
+"Pick actual value": Null
 "pip log": Null
 "Pitcairn": Null
 "Plain text of sections": Null
@@ -760,7 +785,8 @@
 "question": Null
 "Question": Null
 "quit": Null
-"Readability": Null
+"Readability of help text": Null
+"Readability of question": Null
 "README file": Null
 "Read this screen out loud": Null
 "Reason for needing developer account (optional)": Null
@@ -774,6 +800,7 @@
 "Register with Google": Null
 "Register with Twitter": Null
 "Register with your mobile phone": Null
+"Registration attempt": Null
 "Registration is invite only": Null
 "remaining on disk": Null
 "Remember me": Null
@@ -872,9 +899,11 @@
 "Sign in with Azure": Null
 "Sign in with Facebook": Null
 "Sign in with Google": Null
+"Sign in with Keycloak": Null
 "Sign in with Twitter": Null
 "Sign in with your mobile phone": Null
 "Sign Out": Null
+"Sign up": Null
 "Sign Your Name": Null
 "Since you changed a Python module, the server needs to restart in order to load your module.": Null
 "Since you did not type \"delete my account\" I did not delete your account.": Null
@@ -886,7 +915,6 @@
 "Slovakia": Null
 "Slovenia": Null
 "SMS": Null
-"Social ID": Null
 "Solomon Islands": Null
 "Somalia": Null
 "something": Null
@@ -894,7 +922,6 @@
 "Sorry, only .py files can be uploaded here.  To upload other types of files, use other Folders.": Null
 "Sorry, only YAML files can be uploaded here.  To upload other types of files, use the Folders.": Null
 "Sorry, that package name does not exist in the playground": Null
-"Sorry, that package name is already in use by someone else": Null
 "Sorry, that package name,": Null
 "Source code for question": Null
 "Source files": Null
@@ -939,11 +966,14 @@
 "Telephone assistance": Null
 "Template files": Null
 "Templates": Null
+"(term definition)": Null
 "Terms used in this question:": Null
 "Terms used:": Null
 "Test": Null
 "Thailand": Null
+"Thank you for registering": Null
 "Thank you for registering with": Null
+"That e-mail address is already taken.": Null
 "That package name is already in use by someone else.  Please change the name.": Null
 "That screen is already being controlled by another operator": Null
 "The author is": Null
@@ -982,6 +1012,7 @@
 "The privilege could not be added because it already exists.": Null
 "The privilege was added.": Null
 "The project name %s is not available.": Null
+"The project %s was deleted.": Null
 "The README.md file for the package": Null
 "There are no active sessions.": Null
 "There are unsaved changes.  Are you sure you wish to leave this page?": Null
@@ -998,6 +1029,7 @@
 "The role could not be deleted.": Null
 "The synchronization was not successful.": Null
 "The synchronization was successful.": Null
+"The user account did not exit.": Null
 "The user account was deleted.": Null
 "The user can call you.  Click to cancel.": Null
 "The user profile was not changed.": Null
@@ -1011,6 +1043,7 @@
 "This field is required.": Null
 "This image file does not exist": Null
 "This is my custom interview page.": Null
+"This is the only time you will be able to see your API key, so make sure to make a note of it and keep it in a secure place.": Null
 "This package is not yet published on PyPI.": Null
 "This package is not yet published on your GitHub account.": Null
 "This package is": Null
@@ -1028,6 +1061,7 @@
 "to proceed.": Null
 "To reach an advocate who can assist you, call": Null
 "To read the question again, type question.": Null
+"To register for an account, please click on the link below.": Null
 "Trainer privilege": Null
 "Training data were successfully imported.": Null
 "Train machine learning models": Null
@@ -1044,6 +1078,7 @@
 "Tuvalu": Null
 "Twice Per Month": Null
 "Two-factor authentication": Null
+"Type actual value": Null
 "Type a currency value.": Null
 "Type a currency value, or type skip.": Null
 "Type a date and time.": Null
@@ -1180,6 +1215,7 @@
 "You are now set up with two factor authentication.": Null
 "You are renaming the project called %s.": Null
 "You can also follow this link: ": Null
+"You can divide up your Playground into multiple separate areas, apart from your default Playground area.  Each Project has its own question files and Folders.": Null
 "You cannot log in this way.": Null
 "You cannot log in until your e-mail address has been confirmed.": Null
 "You cannot pull from GitHub and PyPI at the same time.  Please fill in one and leave the other blank.": Null
@@ -1196,6 +1232,7 @@
 "You do not have any API keys yet.": Null
 "You do not have permission to access '%(url)s'.": Null
 "You do not have permission to install this package.": Null
+"You do not have sufficient privileges to edit this user.": Null
 "You have been invited to join": Null
 "You have made too many login attempts.": Null
 "You have registered successfully.": Null
@@ -1220,6 +1257,7 @@
 "You need to enter a number that is at most %s.": Null
 "You need to enter a valid date and time.": Null
 "You need to enter a valid date.": Null
+"You need to enter a valid number.": Null
 "You need to enter a valid time.": Null
 "You need to enter a valid value.": Null
 "You need to increment the version before publishing to PyPI.": Null
@@ -1260,6 +1298,7 @@
 "Your information was saved.": Null
 "Your IP address is": Null
 "Your new API key, known internally as %s, is %s": Null
+"Your password has been changed": Null
 "Your password has been changed.": Null
 "Your password has been changed successfully.": Null
 "Your password has been reset successfully.": Null
@@ -1273,6 +1312,7 @@
 "Your screen is being controlled by an operator.": Null
 "yourself": Null
 "Your status: ": Null
+"Your username has been changed": Null
 "Your username has been changed.": Null
 "Your username has been changed to '%(username)s'.": Null
 "Your verification code is invalid or expired.  Please try again.": Null

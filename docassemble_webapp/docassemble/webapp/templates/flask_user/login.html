@@ -16,13 +16,13 @@
           <form action="" method="POST" class="form" role="form">
             {{ form.hidden_tag() }}
             {%- set field = form.username if user_manager.enable_username else form.email %}
-            <div class="form-group {% if field.errors %}da-group-has-error{% endif %}">
+            <div class="da-form-group {% if field.errors %}da-group-has-error{% endif %}">
               <div class="row">
                 <div class="col">
-                  <label for="{{ field.id }}" class="control-label">{{ word(field.label.text) }}</label>
+                  <label for="{{ field.id }}" class="form-label">{{ word(field.label.text) }}</label>
                 </div>
                 <div class="col">
-                  <div class="text-right">
+                  <div class="text-end">
                   {%- if user_manager.enable_register and not user_manager.require_invitation %}
                   {%- if 'next' in request.args %}
                   <a href="{{ url_for('user.register', next=request.args['next']) }}">
@@ -35,7 +35,11 @@
                   </div>
                 </div>
               </div>
-              {{ field(class_='form-control', type='email') }}
+              <div class="row">
+                <div class="col">
+                  {{ field(class_='form-control', type='email') }}
+                </div>
+              </div>
               {%- if field.errors %}
                 {%- for e in field.errors %}
               <p class="da-has-error text-danger">{{ e }}</p>
@@ -43,13 +47,13 @@
               {%- endif %}
             </div>
             {%- set field = form.password %}
-            <div class="form-group {% if field.errors %}da-group-has-error{% endif %}">
+            <div class="da-form-group {% if field.errors %}da-group-has-error{% endif %}">
               <div class="row">
                 <div class="col">
-                  <label for="{{ field.id }}" class="control-label">{{ word(field.label.text) }}</label>
+                  <label for="{{ field.id }}" class="form-label">{{ word(field.label.text) }}</label>
                 </div>
                 <div class="col">
-                  <div class="text-right">
+                  <div class="text-end">
                   {%- if user_manager.enable_forgot_password %}
                   <a href="{{ url_for('user.forgot_password') }}">
                     {{ word("Forgot your Password?") }}
@@ -58,7 +62,11 @@
                   </div>
                 </div>
               </div>
-              {{ field(class_='form-control') }}
+              <div class="row">
+                <div class="col">
+                  {{ field(class_='form-control') }}
+                </div>
+              </div>
               {%- if field.errors %}
                 {%- for e in field.errors %}
               <p class="da-has-error text-danger">{{ e }}</p>
@@ -72,7 +80,7 @@
               {{ render_submit_field(form.submit) }}
             </div>
           </form>
-          {%- if config['USE_GOOGLE_LOGIN'] or config['USE_FACEBOOK_LOGIN'] or config['USE_TWITTER_LOGIN'] or config['USE_AUTH0_LOGIN'] or config['USE_AZURE_LOGIN'] or config['USE_PHONE_LOGIN'] %}
+          {%- if config['USE_GOOGLE_LOGIN'] or config['USE_FACEBOOK_LOGIN'] or config['USE_TWITTER_LOGIN'] or config['USE_AUTH0_LOGIN'] or config['USE_KEYCLOAK_LOGIN'] or config['USE_AZURE_LOGIN'] or config['USE_PHONE_LOGIN'] %}
           <p style="padding: 15px 15px 5px 15px;"><strong>{{ word('or') }}</strong></p>
           {%- endif %}
           {%- endif %}
@@ -99,6 +107,11 @@
           {%- if config['USE_AUTH0_LOGIN'] %}
           <div class="row danomargin">
             <div class="daiconbox col-md-7"><a role="button" class="danohover" href="{{ url_for('oauth_authorize', provider='auth0', next=request.args.get('next', '')) }}"><table><tbody><tr><td style="padding-left:4px;vertical-align:middle;"><img alt="" src="{{ url_for('static', filename='app/auth0-logo.png', v=config['DA_VERSION']) }}"></td><td style="width:100%;vertical-align:middle;text-align:center;">{{ word('Sign in with Auth0') }}</td></tr></tbody></table></a></div>
+          </div>
+          {%- endif %}
+          {%- if config['USE_KEYCLOAK_LOGIN'] %}
+          <div class="row danomargin">
+            <div class="daiconbox col-md-7"><a role="button" class="danohover" href="{{ url_for('oauth_authorize', provider='keycloak', next=request.args.get('next', '')) }}"><table><tbody><tr><td style="padding-left:4px;vertical-align:middle;"><img alt="" src="{{ url_for('static', filename='app/keycloak-logo.png', v=config['DA_VERSION']) }}"></td><td style="width:100%;vertical-align:middle;text-align:center;">{{ word('Sign in with Keycloak') }}</td></tr></tbody></table></a></div>
           </div>
           {%- endif %}
           {%- if config['USE_AZURE_LOGIN'] %}

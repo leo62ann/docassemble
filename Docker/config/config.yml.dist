@@ -1,6 +1,6 @@
-debug: True
-enable playground: True
-allow demo: True
+debug: {{DADEBUG}}
+enable playground: {{DAENABLEPLAYGROUND}}
+allow demo: {{DADEBUG}}
 exitpage: https://docassemble.org
 db:
   prefix: {{DBPREFIX}}
@@ -9,6 +9,10 @@ db:
   password: {{DBPASSWORD}}
   host: {{DBHOST}}
   port: {{DBPORT}}
+  ssl mode: {{DBSSLMODE}}
+  ssl cert: {{DBSSLCERT}}
+  ssl key: {{DBSSLKEY}}
+  ssl root cert: {{DBSSLROOTCERT}}
   table prefix: {{DBTABLEPREFIX}}
   backup: {{DBBACKUP}}
 oauth:
@@ -25,6 +29,12 @@ oauth:
     id: ceyd6imTYxTNmuj2CYpwH_cEhdWt93e6
     secret: LLGEBDrrgDFDfBsFjErsdSdsntkrtAbfa4ee3ss_adfdSDFEWEsfgHTerjNsd3dD
     domain: example.auth0.com
+  keycloak:
+    enable: False
+    id: ceyd6imTYxTNmuj2CYpwH_cEhdWt93e6
+    secret: LLGEBDrrgDFDfBsFjErsdSdsntkrtAbfa4ee3ss_adfdSDFEWEsfgHTerjNsd3dD
+    domain: keycloak.example.com
+    realm: default
   twitter:
     enable: False
     id: Iweh63ReKfOCttaUBE3t27TET
@@ -54,6 +64,7 @@ os locale: {{LOCALE}}
 timezone: {{TIMEZONE}}
 redis: {{REDIS}}
 rabbitmq: {{RABBITMQ}}
+celery processes: {{DACELERYWORKERS}}
 voicerss:
   enable: False
   key: ae8734983948ebc98239e9898f998432
@@ -86,6 +97,7 @@ behind https load balancer: {{BEHINDHTTPSLOADBALANCER}}
 xsendfile: {{XSENDFILE}}
 update on start: {{DAUPDATEONSTART}}
 allow updates: {{DAALLOWUPDATES}}
+allow configuration editing: {{DAALLOWCONFIGURATIONEDITING}}
 url root: {{URLROOT}}
 external hostname: {{DAHOSTNAME}}
 expose websockets: {{DAEXPOSEWEBSOCKETS}}
@@ -98,6 +110,9 @@ allow non-idempotent questions: False
 restrict input variables: True
 web server: {{DAWEBSERVER}}
 new markdown to docx: True
+new template markdown behavior: True
 stable version: {{DASTABLEVERSION}}
 sql ping: {{DASQLPING}}
 default icons: font awesome
+config from: {{CONFIGFROM}}
+enable unoconv: {{ENABLEUNOCONV}}

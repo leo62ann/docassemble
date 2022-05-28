@@ -1,10 +1,11 @@
 # Adapted from flask_mail
+import sys
 import time
 import requests
 from requests.auth import HTTPBasicAuth
 from flask_mail import Message, BadHeaderError, sanitize_addresses, email_dispatched, contextmanager, current_app
 
-class Connection(object):
+class Connection:
     def __init__(self, mail):
         self.mail = mail
     def __enter__(self):
@@ -29,8 +30,8 @@ class Connection(object):
                                  data=data,
                                  files={'message': ('mime_message', message.as_string())})
         if response.status_code >= 400:
-            sys.stderr.write("SendGrid status code: " + str(response.status_code) + "\n")
-            sys.stderr.write("SendGrid response headers: " + repr(response.headers) + "\n")
+            sys.stderr.write("Mailgun status code: " + str(response.status_code) + "\n")
+            sys.stderr.write("Mailgun response headers: " + repr(response.headers) + "\n")
             try:
                 sys.stderr.write(repr(response.body) + "\n")
             except:
@@ -40,7 +41,7 @@ class Connection(object):
     def send_message(self, *args, **kwargs):
         self.send(Message(*args, **kwargs))
 
-class _MailMixin(object):
+class _MailMixin:
 
     @contextmanager
     def record_messages(self):
@@ -72,7 +73,7 @@ class _MailMixin(object):
             return Connection(app.extensions['mail'])
         except KeyError:
             raise RuntimeError("The curent application was not configured with Flask-Mail")
-        
+
 class _Mail(_MailMixin):
     def __init__(self, api_url, api_key,
                  default_sender, debug, suppress,

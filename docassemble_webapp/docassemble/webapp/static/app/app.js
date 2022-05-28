@@ -7,15 +7,11 @@ var daCtx,
 var daTheWidth;
 var daAspectRatio;
 var daTheBorders;
-var daWaiter;
-var daWaitLimit;
 var daIsEmpty;
 
 function daInitializeSignature() {
   daAspectRatio = 0.4;
   daTheBorders = 30;
-  daWaiter = 0;
-  daWaitLimit = 2;
   daIsEmpty = 1;
   setTimeout(function () {
     if (!isCanvasSupported()) {
@@ -23,7 +19,9 @@ function daInitializeSignature() {
     }
     daNewCanvas();
     $(document).on("touchmove", function (event) {
-      event.preventDefault();
+      if (window.matchMedia("(max-width: 575px)").matches) {
+        event.preventDefault();
+      }
     });
   }, 500);
   $(window).on("resize", function () {
@@ -122,7 +120,7 @@ function daNewCanvas() {
   if (cheight > $(window).height() - otherHeights) {
     cheight = $(window).height() - otherHeights;
   }
-  if (cheight > 275) {
+  if (cheight > 275 || cheight < 30) {
     cheight = 275;
   }
   $("#dasigcontent").height(cheight);
@@ -188,24 +186,20 @@ $.fn.drawTouch = function () {
   };
   var move = function (e) {
     e.preventDefault();
-    if (daWaiter % daWaitLimit == 0) {
-      e = e.originalEvent;
-      x = e.changedTouches[0].pageX - $("#dasigcanvas").offset().left;
-      y = e.changedTouches[0].pageY - $("#dasigcanvas").offset().top;
-      daCtx.lineTo(x, y);
-      daCtx.stroke();
-      if (daIsEmpty) {
-        daIsEmpty = 0;
-      }
+    e = e.originalEvent;
+    x = e.changedTouches[0].pageX - $("#dasigcanvas").offset().left;
+    y = e.changedTouches[0].pageY - $("#dasigcanvas").offset().top;
+    daCtx.lineTo(x, y);
+    daCtx.stroke();
+    if (daIsEmpty) {
+      daIsEmpty = 0;
     }
-    daWaiter++;
     //daCtx.fillRect(x-0.5*daTheWidth,y-0.5*daTheWidth,daTheWidth,daTheWidth);
     //daCtx.beginPath();
     //daCtx.arc(x, y, 0.5*daTheWidth, 0, 2*Math.PI);
     //daCtx.fill();
   };
   var moveline = function (e) {
-    daWaiter = 0;
     move(e);
   };
   var dot = function (e) {
@@ -248,25 +242,21 @@ $.fn.drawPointer = function () {
   };
   var move = function (e) {
     e.preventDefault();
-    if (daWaiter % daWaitLimit == 0) {
-      e = e.originalEvent;
-      x = e.pageX - $("#dasigcanvas").offset().left;
-      y = e.pageY - $("#dasigcanvas").offset().top;
-      daCtx.lineTo(x, y);
-      daCtx.stroke();
-      daCtx.beginPath();
-      daCtx.arc(x, y, 0.5 * daTheWidth, 0, 2 * Math.PI);
-      daCtx.fill();
-      daCtx.beginPath();
-      daCtx.moveTo(x, y);
-      if (daIsEmpty) {
-        daIsEmpty = 0;
-      }
+    e = e.originalEvent;
+    x = e.pageX - $("#dasigcanvas").offset().left;
+    y = e.pageY - $("#dasigcanvas").offset().top;
+    daCtx.lineTo(x, y);
+    daCtx.stroke();
+    daCtx.beginPath();
+    daCtx.arc(x, y, 0.5 * daTheWidth, 0, 2 * Math.PI);
+    daCtx.fill();
+    daCtx.beginPath();
+    daCtx.moveTo(x, y);
+    if (daIsEmpty) {
+      daIsEmpty = 0;
     }
-    //daWaiter++;
   };
   var moveline = function (e) {
-    daWaiter = 0;
     move(e);
   };
   $(this).on("MSPointerDown", start);
@@ -292,7 +282,7 @@ $.fn.drawMouse = function () {
     }
   };
   var move = function (e) {
-    if (clicked && daWaiter % daWaitLimit == 0) {
+    if (clicked) {
       x = e.pageX - $("#dasigcanvas").offset().left;
       y = e.pageY - $("#dasigcanvas").offset().top;
       daCtx.lineTo(x, y);
@@ -306,10 +296,8 @@ $.fn.drawMouse = function () {
         daIsEmpty = 0;
       }
     }
-    //daWaiter++;
   };
   var stop = function (e) {
-    daWaiter = 0;
     move(e);
     clicked = 0;
     return true;
@@ -352,11 +340,12 @@ function daInitAutocomplete(ids) {
   setTimeout(function () {
     for (var i = 0; i < ids.length; ++i) {
       var id = ids[i];
-      daAutocomplete[
-        id
-      ] = new google.maps.places.Autocomplete(document.getElementById(id), {
-        types: ["address"],
-      });
+      daAutocomplete[id] = new google.maps.places.Autocomplete(
+        document.getElementById(id),
+        {
+          types: ["address"],
+        }
+      );
       daAutocomplete[id].setFields(["address_components"]);
       google.maps.event.addListener(
         daAutocomplete[id],
@@ -523,7 +512,7 @@ function daFillInAddress(origId) {
   var street_number;
   var route;
   var savedValues = {};
-
+  var toChange = [];
   for (var i = 0; i < place.address_components.length; i++) {
     var addressType = place.address_components[i].types[0];
     savedValues[addressType] = place.address_components[i]["long_name"];
@@ -544,6 +533,7 @@ function daFillInAddress(origId) {
         document.getElementById(
           id_for_part[componentTrans[addressType]]
         ).value = val;
+        toChange.push("#" + id_for_part[componentTrans[addressType]]);
       }
       if (componentTrans[addressType] != addressType) {
         val = place.address_components[i]["long_name"];
@@ -553,6 +543,7 @@ function daFillInAddress(origId) {
           document.getElementById(id_for_part[addressType]) != null
         ) {
           document.getElementById(id_for_part[addressType]).value = val;
+          toChange.push("#" + id_for_part[addressType]);
         }
       }
     } else if (
@@ -563,6 +554,7 @@ function daFillInAddress(origId) {
       var val = place.address_components[i]["long_name"];
       if (typeof val != "undefined") {
         document.getElementById(id_for_part[addressType]).value = val;
+        toChange.push("#" + id_for_part[addressType]);
       }
     }
   }
@@ -578,6 +570,7 @@ function daFillInAddress(origId) {
       the_address += route;
     }
     document.getElementById(id_for_part["address"]).value = the_address;
+    toChange.push("#" + id_for_part["address"]);
   }
   if (
     typeof id_for_part["city"] != "undefined" &&
@@ -604,6 +597,9 @@ function daFillInAddress(origId) {
       document.getElementById(id_for_part["city"]).value =
         savedValues["administrative_area_level_3"];
     }
+  }
+  for (var i = 0; i < toChange.length; i++) {
+    $(toChange[i]).trigger("change");
   }
 }
 

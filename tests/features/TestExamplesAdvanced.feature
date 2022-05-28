@@ -47,8 +47,8 @@ Feature: Example interviews
     Given I start the interview "docassemble.demo:data/questions/testurlarg.yml&from=moon"
     Then I should see the phrase "You came from the moon."
 
-  Scenario: Test the interview "Geolocate from address"
-    Given I start the interview "docassemble.base:data/questions/examples/geolocate-from-address.yml"
+  Scenario: Test the interview "Geocode from address"
+    Given I start the interview "docassemble.base:data/questions/examples/geocode-from-address.yml"
     Then I should see the phrase "Enter an address"
     And I set "Address" to "5901 Broken Sound Pkwy NW, Boca Raton, FL 33487"
     And I click the button "Continue"
@@ -56,8 +56,8 @@ Feature: Example interviews
     And I should see the phrase "The address is located in Boca Raton."
     And I should see the phrase "The latitude and longitude are 26.4024364 and -80.1167301."
 
-  Scenario: Test the interview "Geolocate address"
-    Given I start the interview "docassemble.base:data/questions/examples/geolocate.yml"
+  Scenario: Test the interview "Geocode address"
+    Given I start the interview "docassemble.base:data/questions/examples/geocode.yml"
     Then I should see the phrase "Enter an address"
     And I set "Address" to "211 S 11th St"
     And I set "City" to "Philadelphia"
@@ -95,7 +95,7 @@ Feature: Example interviews
     And I click the button "Continue"
     Then I should see the phrase "Map of you and your enemy"
 
-  # Scenario: Test the interview "Machine learning"
+  # Scenario: Test the interview "Machine learning" 1
   #   Given I start the interview "docassemble.base:data/questions/examples/ml-ajax-classify.yml"
 
   # Scenario: Test the interview "Suggestions"
@@ -133,7 +133,7 @@ Feature: Example interviews
   # Scenario: Test the interview "Save for classification"
   #   Given I start the interview "docassemble.base:data/questions/examples/ml-save-and-predict.yml"
 
-  Scenario: Test the interview "Share training sets"
+  Scenario: Test the interview "Share training sets" 1
     Given I start the interview "docassemble.demo:data/questions/examples/predict-activity-activity.yml"
     Then I should see the phrase "What kind of work do you do now?"
     And I set "Work" to "Analyzing briefs, writing memos, and taking cases"
@@ -143,7 +143,7 @@ Feature: Example interviews
     And I click the button "Continue"
     Then I should see the phrase "It seems that you are fairly content with your current work."
 
-  Scenario: Test the interview "Share training sets"
+  Scenario: Test the interview "Share training sets" 2
     Given I start the interview "docassemble.demo:data/questions/examples/predict-activity.yml"
     Then I should see the phrase "What kind of work do you do now?"
     And I set "Work" to "Analyzing briefs, writing memos, and taking cases"
@@ -152,20 +152,6 @@ Feature: Example interviews
     And I set "Work" to "Writing briefs, writing memos, and taking even more cases"
     And I click the button "Continue"
     Then I should see the phrase "It seems that you are fairly content with your current work."
-
-  Scenario: Test the interview "Machine Learning"
-    Given I start the interview "docassemble.demo:data/questions/examples/predict-happy-sad-area.yml"
-    Then I should see the phrase "Describe how you feel."
-    And I set the text area to "Lousy"
-    And I click the button "Continue"
-    Then I should see the phrase "You sound sad."
-
-  Scenario: Test the interview "Machine Learning"
-    Given I start the interview "docassemble.demo:data/questions/examples/predict-happy-sad.yml"
-    Then I should see the phrase "Describe how you feel."
-    And I set the text box to "Lousy"
-    And I click the button "Continue"
-    Then I should see the phrase "You sound sad."
 
   Scenario: Test the interview "Address autocomplete"
     Given I start the interview "docassemble.base:data/questions/examples/address-autocomplete.yml"
@@ -184,7 +170,7 @@ Feature: Example interviews
     And I click the button "Continue"
     Then I should see the phrase "¿Cuál es el significado de la vida?"
     And I set "Significado de la Vida" to "dormir"
-    And I click the button "Continuar"
+    And I click the button "Seguir"
     Then I should see the phrase "The meaning of life"
     And I should see the phrase "The interviewee said the meaning of life is"
     And I should see the phrase "dormir"
@@ -196,7 +182,7 @@ Feature: Example interviews
     And I click the button "Continue"
     Then I should see the phrase "¿Cuál es el significado de la vida?"
     And I set "Significado de la Vida" to "dinero"
-    And I click the button "Continuar"
+    And I click the button "Seguir"
     Then I should see the phrase "The meaning of life"
     And I should see the phrase "The interviewee said the meaning of life is:"
     And I should see the phrase "dinero"
@@ -234,7 +220,7 @@ Feature: Example interviews
     Then I should see the phrase "You live in Philadelphia County."
     And I click the link "Review your answers"
     Then I should see the phrase "This address is located in Philadelphia County."
-    And I click the link "Edit"
+    And I click the link " Edit"
     Then I should see the phrase "What is your address?"
     And I set "Street address" to "651 College Drive"
     And I set "City" to "Blackwood"
@@ -255,3 +241,56 @@ Feature: Example interviews
   # Scenario: Test the interview "DAWeb"
   #   Given I start the interview "docassemble.base:data/questions/examples/daweb.yml"
 
+  Scenario: Test the interview "Geocode address"
+    Given I start the interview "docassemble.base:data/questions/examples/geocode-reset.yml"
+    Then I should see the phrase "Enter an address"
+    And I set "Address" to "123 Main St"
+    And I set "City" to "Springfield"
+    And I select "Missouri" as the "State"
+    And I set "Zip" to "12121"
+    And I click the button "Continue"
+    Then I should see the phrase "Information about your address"
+    And I should see the phrase "The address is located in Greene County."
+    And I click the button "Continue"
+    Then I should see the phrase "Enter an address"
+    And I set "Address" to "211 S 11th St"
+    And I set "City" to "Philadelphia"
+    And I select "Pennsylvania" as the "State"
+    And I set "Zip" to ""
+    And I click the button "Continue"
+    Then I should see the phrase "Information about your address"
+    And I should see the phrase "The address is located in Philadelphia County."
+
+  Scenario: Test the interview "Companies"
+    Given I start the interview "docassemble.demo:data/questions/examples/companies.yml"
+    Then I should see the phrase "Companies"
+
+  Scenario: Test the interview "SQL Mirror"
+    Given I start the interview "docassemble.demo:data/questions/examples/testdatabase.yml"
+    Then I should see the phrase "What is the customer’s SSN?"
+    And I click the button "Continue"
+    Then I should see the phrase "What is the bank’s routing number?"
+    And I click the button "Continue"
+    Then I should see the phrase "The bank is PSFS and the customer is John Smith."
+
+  Scenario: Test the interview "Machine Learning" 2
+    Given I start the interview "docassemble.demo:data/questions/examples/predict-happy-sad-area.yml"
+    Then I should see the phrase "Describe how you feel."
+    And I set the text area to "Lousy"
+    And I click the button "Continue"
+    Then I should see the phrase "You sound sad."
+
+  Scenario: Test the interview "Machine Learning" 3
+    Given I start the interview "docassemble.demo:data/questions/examples/predict-happy-sad.yml"
+    Then I should see the phrase "Describe how you feel."
+    And I set the text box to "Lousy"
+    And I click the button "Continue"
+    Then I should see the phrase "You sound sad."
+
+  Scenario: Test the interview "Language" 2
+    Given I start the interview "docassemble.base:data/questions/examples/document-language.yml"
+    Then I should see the phrase "El documento está listo."
+    And I should see the phrase "Alimentos"
+    And I click the link "Avance"
+    And I wait 1 second
+    Then I should see the phrase "This customer would like to order fries and a Coke."

@@ -1,7 +1,6 @@
 #! /bin/bash
 
 export DA_ROOT="${DA_ROOT:-/usr/share/docassemble}"
-export DAPYTHONVERSION="${DAPYTHONVERSION:-3}"
 export DA_DEFAULT_LOCAL="local3.8"
 
 export DA_ACTIVATE="${DA_PYTHON:-${DA_ROOT}/${DA_DEFAULT_LOCAL}}/bin/activate"
@@ -22,6 +21,7 @@ if [ "${S3ENABLE:-null}" == "true" ] && [ "${S3BUCKET:-null}" != "null" ] && [ "
     export S3_SECRET_KEY="$S3SECRETACCESSKEY"
     export AWS_ACCESS_KEY_ID="$S3ACCESSKEY"
     export AWS_SECRET_ACCESS_KEY="$S3SECRETACCESSKEY"
+    export AWS_DEFAULT_REGION="$S3REGION"
 fi
 
 if [ "${S3ENDPOINTURL:-null}" != "null" ]; then
